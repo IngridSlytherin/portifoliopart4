@@ -1,0 +1,749 @@
+* {
+    box-sizing: border-box; 
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
+}
+
+/* ESTRUTURA */
+#main {
+  display: flex;
+  flex: 1;
+}
+#main > article {
+  flex: 1;
+  text-align: center;
+}
+#main > nav, 
+#main > aside {
+  flex: 0 0 20vw;
+  background: #cfedec;
+}
+#main > nav {
+  order: -1;
+}
+header {
+  background: #45734C;
+  height: 20vh;
+  text-align: center;
+ 
+}
+footer {
+  background: #45734C;
+  height: 15vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  color: black;
+}
+header, footer, article, nav, aside {
+  padding: 1em;
+  font-size: 3vh;
+}
+
+.container{
+  
+  display: flex;  
+  justify-content: center;
+  margin-top: -100px;
+  width: 100%;
+  height: 35vh;
+  background-image: url('slytherin-min.jpg');
+  border-radius: 3px;
+  background-size: cover; 
+}
+
+@media screen and (min-width: 768px){
+
+  .container{
+    display: inline-flex;
+    justify-content: center;
+    width: 65%;
+    height: 55vh;
+    background-image: url('slytherin-1.jpg');
+    border-radius: 3px;
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 768px){
+
+  .container{
+    display: inline-flex;
+    justify-content: center;
+    width: 60%;
+    height: 55vh;
+    background-image: url('slytherin-1.jpg');
+    border-radius: 3px;
+    background-size: cover;
+  }
+}
+
+ul{
+  margin-top: 0;
+  margin-left: 0;
+  display: flex;
+  justify-content: space-between;
+  /*background-color: red;*/
+  width: 100%;
+  height: 5vh;
+  position: relative;
+}
+
+
+@media screen and (min-width: 768px){
+
+  ul{
+    display: inline-flex;
+    justify-content: space-between;
+    width: 60%;
+    height: 2vh;
+  }
+}
+
+/* Icones */
+ul  a {
+  color: #F21B2D; /*#E827E8;*/
+  font-size: 4rem;
+  margin-left: -35px;
+  margin-right: 5px;
+  }
+
+  @media screen and (min-width: 768px){
+
+    ul a{
+      color: #F21B2D; /*black*/;
+      font-size: 3rem;
+      margin-left: -35px;
+      margin-right: 5px;
+    }
+  }
+ 
+
+hr{
+  background-image: linear-gradient(to right, transparent, #CCC, transparent);
+  border: 0;
+   height: 0.50vh;
+  margin-top: 5vh;
+  margin-bottom: -10vh;
+  position: static;
+}
+/*-------------------------------------------------*/
+
+
+/*  Linha do Tempo */
+
+.timeline{
+  --uiTimelineMainColor: var(--timelineMainColor, #222);
+  --uiTimelineSecondaryColor: var(--timelineSecondaryColor, #fff);
+
+  position: relative;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.timeline:before{
+  content: "";
+  width: 4px;
+  height: 100%;
+  background-color: var(--uiTimelineMainColor);
+
+  position: absolute;
+  top: 0;
+}
+
+.timeline__group{
+  position: relative;
+}
+
+.timeline__group:not(:first-of-type){
+  margin-top: 4rem;
+}
+
+.timeline__year{
+  padding: .5rem 1.5rem;
+  color: var(--uiTimelineSecondaryColor);
+  background-color: var(--uiTimelineMainColor);
+
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.timeline__box{
+  position: relative;
+}
+
+.timeline__box:not(:last-of-type){
+  margin-bottom: 30px;
+}
+
+.timeline__box:before{
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: var(--uiTimelineMainColor);
+
+  position: absolute;
+  left: 0;
+  z-index: -1;
+}
+
+.timeline__date{
+  min-width: 65px;
+  position: absolute;
+  left: 0;
+
+  box-sizing: border-box;
+  padding: .5rem 1.5rem;
+  text-align: center;
+
+  background-color: var(--uiTimelineMainColor);
+  color: var(--uiTimelineSecondaryColor);
+}
+
+.timeline__day{
+  font-size: 2rem;
+  font-weight: 700;
+  display: block;
+}
+
+.timeline__month{
+  display: block;
+  font-size: .8em;
+  text-transform: uppercase;
+}
+
+.timeline__post{
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  border-left: 3px solid var(--uiTimelineMainColor);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
+  background-color: var(--uiTimelineSecondaryColor);
+}
+
+@media screen and (min-width: 641px){
+
+  .timeline:before{
+    left: 30px;
+  }
+
+  .timeline__group{
+    padding-top: 55px;
+  }
+
+  .timeline__box{
+    padding-left: 80px;
+  }
+
+  .timeline__box:before{
+    top: 50%;
+    transform: translateY(-50%);  
+  }  
+
+  .timeline__date{
+    top: 50%;
+    margin-top: -27px;
+  }
+}
+
+@media screen and (max-width: 640px){
+
+  .timeline:before{
+    left: 0;
+  }
+
+  .timeline__group{
+    padding-top: 40px;
+  }
+
+  .timeline__box{
+    padding-left: 20px;
+    padding-top: 70px;
+  }
+
+  .timeline__box:before{
+    top: 90px;
+  }    
+
+  .timeline__date{
+    top: 0;
+  }
+}
+
+.timeline{
+  --timelineMainColor: #e49477; /* #9e2c6f #4557bb*/;
+  font-size: 16px;
+}
+
+/* DEMO */
+
+@media (min-width: 768px){
+
+  html{
+    font-size: 62.5%;
+  }
+}
+
+@media (max-width: 767px){
+
+  html{
+    font-size: 55%;
+  }
+}
+
+/* CORPO DA LINHA TEMPORAL */ 
+body{
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+  font-size: 1.6rem;
+  color: #222;
+
+  background-color: #f0f0f0;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;   
+  overflow-y: scroll;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+p{
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+p:last-child{
+  margin-bottom: 0;
+}
+
+.page{
+  max-width: 800px;
+  margin-top: 0px;
+  padding: 10rem 2rem 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  order: 1;
+}
+
+button{
+  margin-top: 30px;
+  font-weight: bold;
+  color: azure;
+  background-color: #F21B2D;
+  border-color: #F21B2D;
+  border-radius: 8px;
+  font-size: 3vh;
+  width: 40%;
+  height: 5vh;
+}
+ /* -- Habilidades -- */
+button a {
+  color: white;
+  font-size: 3vh;
+  text-decoration: none;
+}
+
+
+/* -------------------- SKILLS -------------------- */
+#SkillBox {
+  font-size: 21px;
+  font-family: 'Quantico', cursive;
+  width: 95%;
+  height: auto;
+ /* margin: 40px auto;
+  background-color: #fff;
+  border: 1px solid #cdcdcd;*/
+  padding: 10px;
+  border-radius:20px;
+  -o-border-radius:20px;
+  -webkit-border-radius:20px;
+  -ms-border-radius:20px;
+  -moz-border-radius:20px;  
+}
+#SkillBox img {
+  width: 20%;
+  height: 10%;
+  margin: auto 35%;
+  padding: 10px;
+}
+.SkillBar {
+  width: 90%;
+  height: 50px;
+  position: relative;
+  background: rgba(17, 17, 17, .3);
+  margin: 20px auto;
+}
+#Skill-HTML {
+  width: 90%;
+  animation: Animate-HTML 4s;
+  -webkit-animation: Animate-HTML 4s;
+  -moz-animation: Animate-HTML 4s;
+  -o-animation: Animate-HTML 4s;
+  height: 50px;
+  position: absolute;
+  background-color: #ea8564;
+}
+@keyframes Animate-HTML {
+  from {
+  width: 10px;
+}
+to {
+  width: 90%}
+}@-webkit-keyframes Animate-HTML {
+  from {
+  width: 10px;
+}
+to {
+  width: 100%}
+}@-moz-keyframes Animate-HTML {
+  from {
+  width: 10px;
+}
+to {
+  width: 100%}
+}@-o-keyframes Animate-HTML {
+  from {
+  width: 10px;
+}
+to {
+  width: 100%}
+}#Skill-CSS {
+  animation: Animate-CSS 5s;
+  -webkit-animation: Animate-CSS 5s;
+  -moz-animation: Animate-CSS 5s;
+  -o-animation: Animate-CSS 5s;
+  width: 80%;
+  height: 50px;
+  position: absolute;
+  background-color: #55a69f;
+}
+@keyframes Animate-CSS {
+  from {
+  width: 10px;
+}
+to {
+  width: 80%}
+}@-webkit-keyframes Animate-CSS {
+  from {
+  width: 10px;
+}
+to {
+  width: 80%}
+}@-moz-keyframes Animate-CSS {
+  from {
+  width: 10px;
+}
+to {
+  width: 70%}
+}@-o-keyframes Animate-CSS {
+  from {
+  width: 10px;
+}
+to {
+  width: 70%}
+}#Skill-jQuery {
+  animation: Animate-jQuery 5s;
+  -webkit-animation: Animate-jQuery 5s;
+  -moz-animation: Animate-jQuery 5s;
+  -o-animation: Animate-jQuery 5s;
+  width: 40%;
+  height: 50px;
+  position: absolute;
+  background-color: #99856d;
+}
+@keyframes Animate-jQuery {
+  from {
+  width: 10px;
+}
+to {
+  width: 40%}
+}@-webkit-keyframes Animate-jQuery {
+  from {
+  width: 10px;
+}
+to {
+  width: 40%}
+}@-moz-keyframes Animate-jQuery {
+  from {
+  width: 10px;
+}
+to {
+  width: 40%}
+}@-o-keyframes Animate-jQuery {
+  from {
+  width: 10px;
+}
+to {
+  width: 40%}
+}#Skill-JS {
+  animation: Animate-JS 4s;
+  -webkit-animation: Animate-JS 4s;
+  -moz-animation: Animate-JS 4s;
+  -o-animation: Animate-JS 4s;
+  width: 25%;
+  height: 50px;
+  position: absolute;
+  background-color: #c44e45;
+}
+@keyframes Animate-JS {
+  from {
+  width: 10px;
+}
+to {
+  width: 25%}
+}@-webkit-keyframes Animate-JS {
+  from {
+  width: 10px;
+}
+to {
+  width: 25%}
+}@-moz-keyframes Animate-JS {
+  from {
+  width: 10px;
+}
+to {
+  width: 25%}
+}@-o-keyframes Animate-JS {
+  from {
+  width: 10px;
+}
+to {
+  width: 25%}
+}#Skill-SEO {
+  animation: Animate-SEO 4s;
+  -webkit-animation: Animate-SEO 4s;
+  -moz-animation: Animate-SEO 4s;
+  -o-animation: Animate-SEO 4s;
+  width: 70%;
+  height: 50px;
+  position: absolute;
+  background-color: #5aa669;
+}
+@keyframes Animate-SEO {
+  from {
+  width: 10px;
+}
+to {
+  width: 70%}
+}@-webkit-keyframes Animate-SEO {
+  from {
+  width: 10px;
+}
+to {
+  width: 70%}
+}@-moz-keyframes Animate-SEO {
+  from {
+  width: 10px;
+}
+to {
+  width: 70%}
+}@-o-keyframes Animate-SEO {
+  from {
+  width: 10px;
+}
+to {
+  width: 70%}
+}#Skill-REDES {
+  animation: Animate-REDES 4s;
+  -webkit-animation: Animate-REDES 4s;
+  -moz-animation: Animate-REDES 4s;
+  -o-animation: Animate-REDES 4s;
+  width: 35%;
+  height: 50px;
+  position: absolute;
+  background-color: #970cc1;
+}
+@keyframes Animate-REDES {
+  from {
+  width: 10px;
+}
+to {
+  width: 35%}
+}@-webkit-keyframes Animate-REDES {
+  from {
+  width: 10px;
+}
+to {
+  width: 35%}
+}@-moz-keyframes Animate-REDES {
+  from {
+  width: 10px;
+}
+to {
+  width: 35%}
+}@-o-keyframes Animate-REDES {
+  from {
+  width: 10px;
+}
+to {
+  width: 35%}
+}#Skill-BD {
+  animation: Animate-BD 4s;
+  -webkit-animation: Animate-BD 4s;
+  -moz-animation: Animate-BD 4s;
+  -o-animation: Animate-BD 4s;
+  width: 20%;
+  height: 50px;
+  position: absolute;
+  background-color: #8e930c;
+}
+@keyframes Animate-BD {
+  from {
+  width: 10px;
+}
+to {
+  width: 20%}
+}@-webkit-keyframes Animate-BD {
+  from {
+  width: 10px;
+}
+to {
+  width: 20%}
+}@-moz-keyframes Animate-BD {
+  from {
+  width: 10px;
+}
+to {
+  width: 20%}
+}@-o-keyframes Animate-BD {
+  from {
+  width: 10px;
+}
+to {
+  width: 20%}
+}#Skill-PHP {
+  animation: Animate-PHP 4s;
+  -webkit-animation: Animate-PHP 4s;
+  -moz-animation: Animate-PHP 4s;
+  -o-animation: Animate-PHP 4s;
+  width: 35%;
+  height: 50px;
+  position: absolute;
+  background-color: #5A69A6;
+}
+@keyframes Animate-PHP {
+  from {
+  width: 10px;
+}
+to {
+  width: 35%}
+}@-webkit-keyframes Animate-PHP {
+  from {
+  width: 10px;
+}
+to {
+  width: 35%}
+}@-moz-keyframes Animate-PHP {
+  from {
+  width: 10px;
+}
+to {
+  width: 35%}
+}@-o-keyframes Animate-PHP {
+  from {
+  width: 10px;
+}
+to {
+  width: 35%}
+}#Skill-PO {
+  animation: Animate-PO 4s;
+  -webkit-animation: Animate-PO 4s;
+  -moz-animation: Animate-PO 4s;
+  -o-animation: Animate-PO 4s;
+  width: 85%;
+  height: 50px;
+  position: absolute;
+  background-color: #23b1db;
+}
+@keyframes Animate-PO {
+  from {
+  width: 10px;
+}
+to {
+  width: 85%}
+}@-webkit-keyframes Animate-PO {
+  from {
+  width: 10px;
+}
+to {
+  width: 85%}
+}@-moz-keyframes Animate-PO {
+  from {
+  width: 10px;
+}
+to {
+  width: 85%}
+}@-o-keyframes Animate-PO {
+  from {
+  width: 10px;
+}
+to {
+  width: 85%}
+}#Skill-PS {
+  animation: Animate-PS 4s;
+  -webkit-animation: Animate-PS 4s;
+  -moz-animation: Animate-PS 4s;
+  -o-animation: Animate-PS 4s;
+  width: 75%;
+  height: 50px;
+  position: absolute;
+  background-color: #f8a51e;
+}
+@keyframes Animate-PS {
+  from {
+  width: 10px;
+}
+to {
+  width: 75%}
+}@-webkit-keyframes Animate-PS {
+  from {
+  width: 10px;
+}
+to {
+  width: 75%}
+}@-moz-keyframes Animate-PS {
+  from {
+  width: 10px;
+}
+to {
+  width: 75%}
+}@-o-keyframes Animate-PS {
+  from {
+  width: 10px;
+}
+to {
+  width: 75%}
+}.Skill-Area {
+  z-index: 1;
+  float: left;
+  /**/position: absolute;
+  margin-top: 20px;
+  margin-left: 15px;
+  text-shadow: none;
+  color: #fff;
+  /**/font-family: Lato-Regular, sans-serif;
+  font-size: 2vh;
+}
+.PercentText {
+  z-index: 3;
+  position: relative;
+  padding-right: 15px;
+  margin-top: 20px;
+  float: right;
+  text-shadow: none;
+  color: #fff;
+  /**/font-family: Lato-Regular, sans-serif;
+  font-size: 2vh;
+}
+/* -------------------- FIM SKILLS -------------------- */
+
+.hab{
+  text-align: center;
+  font-size: 3vh;
+  font-style: oblique;
+  font-weight: bold;
+}
